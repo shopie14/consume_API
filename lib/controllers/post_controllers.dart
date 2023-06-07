@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../models/comment.dart';
 import '../models/post.dart';
 import '../services/post_service.dart';
 

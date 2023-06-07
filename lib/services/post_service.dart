@@ -52,7 +52,7 @@ class PostService {
 
   Future<http.Response> patch({
     required int id,
-    String? tittle,
+    String? title,
     String? body,
   }) async {
     String endPoint = "${EndPoint.post}/$id";

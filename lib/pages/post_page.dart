@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../models/post.dart';
+
 class PostPage extends StatefulWidget {
   const PostPage({super.key, required this.post});
   final Post post;
 
   @override
-  State<postPage> createState() => _PostPageState();
+  State<PostPage> createState() => _PostPageState();
 }
 
 class _PostPageState extends State<PostPage> {
@@ -18,7 +20,7 @@ class _PostPageState extends State<PostPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("detail post"),
+        title: Text("Detail post"),
       ),
       body: SafeArea(
           child: Padding(
