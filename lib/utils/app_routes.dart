@@ -14,7 +14,7 @@ class AppRoutes {
     );
   }
 
-  static Page _homePageBuilder(BuildContext context, GoRouterState state){
+  static Page _postPageBuilder(BuildContext context, GoRouterState state){
     return MaterialPage(
       child: Scaffold(
         appBar: AppBar(title: const Text('Home Page')),
