@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../controllers/post_controllers.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,32 +8,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Page"),
-      ),
-      body: const SafeArea(child: Center()),
-    );
-  }
-}
-
-
-import 'package: flutter/material.dart';
-import 'package:api_berita_app/controllers/post_controllers.dart';
-import 'package:flutter/material.dart';
-import 'package:itg_consume_api/controllers/post_controller.dart';
-import '../models/post.dart';
-
-class HomePage extends Statefulwidget {
-  const HomePage({ super.key});
-  
-  @override
-  State<HomePage> createState() => _HomePageState();
-  }
-  class HomePageState extends State<HomePage> { 
+class HomePageState extends State<HomePage> { 
     final PostController postController = PostController()
     @override
     Widget build(BuildContext context) {
@@ -104,9 +80,3 @@ class HomePage extends Statefulwidget {
             } else {
               return Text ("error");
             }
-            },
-            ), // FutureBuilder
-            ), // SafeArea
-            ); // Scaffold
-    }
-  }

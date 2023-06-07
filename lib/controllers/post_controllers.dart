@@ -1,10 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
-//import 'dart:html';
 import 'dart:io';
 
-import 'package:itg_consume_api/models/post.dart';
-import 'package:itg_consume_api/services/post_service.dart';
+import '../models/post.dart';
+import '../services/post_service.dart';
+
 
 class PostController {
   Future<List<Post>> fetchAll() async {
