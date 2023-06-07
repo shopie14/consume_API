@@ -5,10 +5,22 @@ import '../pages/home_page.dart';
 
 class AppRoutes {
   static const home = 'home';
+  static const post = 'post';
 
-  static Page _homePageBuilder(BuildContext context, GoRouterState state) {
-    return const MaterialPage(
-      child: HomePage(),
+  
+  static Page _homePageBuilder(BuildContext context, GoRouterState state){
+    return MaterialPage(
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Home Page')),
+      )
+    );
+  }
+
+  static Page _postPageBuilder(BuildContext context, GoRouterState state){
+    return MaterialPage(
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Home Page')),
+      )
     );
   }
 
