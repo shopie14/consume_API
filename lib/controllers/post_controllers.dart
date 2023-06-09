@@ -23,7 +23,6 @@ class PostController {
     });
   }
 
-
   Future<List<Comment>> fetchComments(int.id){
     return await PostService().fetchComments(id).then((res){
       if (res.statusCode == HttpStatus.ok){
@@ -35,9 +34,8 @@ class PostController {
     });
   }
 
-  Future<bool> delete(int id){
+  Future<bool> delete(int id) async{
     return await PostService().delete(id).then((res){
-      inspect(res);
       if (res.statusCode == HttpStatus.ok){
         return true;
       }else{

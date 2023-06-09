@@ -28,19 +28,60 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (snapshot.hasData) {
               if (snapshot.data!.isNotEmpty) {
-                return ListView.separated(
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(snapshot.data![index].title),
-                      subtitle: Text(snapshot.data![index].body),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      height: size.height * 0.01,
-                    );
-                  },
-                  itemCount: snapshot.data!.length,
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
+                  child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return Dismissible(
+                        key: Key(snapshot.data![index].id.toString()),
+                        onDismissed: (direction) {
+                          setState(() {
+                            postController
+                                .delete(snapshot.data![index].id)
+                                .then((result) {
+                              if (result) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Data Berhasil Dihapus"),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Data Gagal Dihapus"),
+                                  ),
+                                );
+                                setState(() {
+                                  
+                                });
+                              }
+                            });
+                            snapshot.data!.removeAt(index);
+                          });
+                        },
+                        child: Card(
+                          child: ListTile(
+                            title: Text(
+                              snapshot.data![index].title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            subtitle: Text(
+                              snapshot.data![index].body,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: size.height * 0.0005,
+                      );
+                    },
+                    itemCount: snapshot.data!.length,
+                  ),
                 );
               } else {
                 return Text("Tidak Ada Data");
