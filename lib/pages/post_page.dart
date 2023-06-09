@@ -44,6 +44,7 @@ class _PostPageState extends State<PostPage> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.01),
+            const Text("komentar"),
             Expanded(
                 child: FutureBuilder<List<Comment>>(
               future: postController.fetchComments(widget.post.id),
@@ -53,9 +54,11 @@ class _PostPageState extends State<PostPage> {
                     List<Comment> comments = snapshot.data!;
                     return ListView.separated(
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(comments[index].name),
-                          subtitle: Text(comments[index].body),
+                        return Card(
+                          child: ListTile(
+                            title: Text(comments[index].name),
+                            subtitle: Text(comments[index].body),
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) {
@@ -70,7 +73,12 @@ class _PostPageState extends State<PostPage> {
                   }
                 } else if (snapshot.connectionState ==
                     ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
+                  return  AspectRatio(
+                    aspectRatio: 1/1,
+                  child: SizedBox(
+                    width: size.width * 0.4,
+                     CircularProgressIndicator(),
+                     ));
                 } else {
                   return const Center(child: Text("Error"));
                 }
