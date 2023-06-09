@@ -44,7 +44,7 @@ class _PostPageState extends State<PostPage> {
             SizedBox(height: size.height * 0.01),
             const Text(
               "Komentar",
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.01),
             Expanded(
@@ -69,7 +69,7 @@ class _PostPageState extends State<PostPage> {
                       itemCount: comments.length,
                     );
                   } else {
-                    return Text("Belum ada komentar");
+                    return const Text("Belum ada komentar");
                   }
                 } else if (snapshot.connectionState ==
                     ConnectionState.waiting) {

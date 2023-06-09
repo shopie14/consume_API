@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routeInformationProvider: AppRoutes.goRouter.routeInformationProvider,
+      routeInformationParser: AppRoutes.goRouter.routeInformationParser,
       routerDelegate: AppRoutes.goRouter.routerDelegate,
     );
   }
