@@ -93,10 +93,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               } else {
-                return Text("Tidak Ada Data");
+                return const Text("Tidak Ada Data");
               }
             } else {
-              return Text("Error");
+              return const Text("Error");
             }
           },
         ),
