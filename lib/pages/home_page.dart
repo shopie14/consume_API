@@ -102,11 +102,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed:(){
+        onPressed: () {
           AppRoutes.goRouter.pushNamed(AppRoutes.addPost);
         },
-        label: Text("Tambah Berita"),
-         ),
+      ),
     );
   }
 }

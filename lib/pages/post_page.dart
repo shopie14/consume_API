@@ -73,12 +73,11 @@ class _PostPageState extends State<PostPage> {
                   }
                 } else if (snapshot.connectionState ==
                     ConnectionState.waiting) {
-                  return  AspectRatio(
-                    aspectRatio: 1/1,
-                  child: SizedBox(
-                    width: size.width * 0.4,
-                     CircularProgressIndicator(),
-                     ));
+                  return AspectRatio(
+                      aspectRatio: 1 / 1,
+                      child: SizedBox(
+                        width: size.width * 0.4,
+                      ));
                 } else {
                   return const Center(child: Text("Error"));
                 }

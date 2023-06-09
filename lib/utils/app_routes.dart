@@ -2,6 +2,7 @@ import 'package:api_berita_app/pages/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../models/post.dart';
+import '../pages/add_post_page.dart';
 
 class AppRoutes {
   static const home = "home";

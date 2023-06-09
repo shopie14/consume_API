@@ -11,9 +11,8 @@ class AddPostPage extends StatefulWidget {
 }
 
 class _AddPostPageState extends State<AddPostPage> {
-  final Postcontroller postcontroller = postcontroller();
+  final PostController postcontroller = PostController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final size = MediaQuery.of(context).size;
   late final TextEditingController titleController;
   late final TextEditingController bodyController;
   @override
@@ -25,6 +24,7 @@ class _AddPostPageState extends State<AddPostPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tambah Berita"),
@@ -34,7 +34,7 @@ class _AddPostPageState extends State<AddPostPage> {
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: size.width * 8.0),
-              child: form(
+              child: Form(
                 key: _formKey,
                 child: Column(
                   children: [
@@ -79,11 +79,9 @@ class _AddPostPageState extends State<AddPostPage> {
           ),
           Container(
             width: size.width,
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0, 01),
+            padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
             child: TextButton(
-              onPressed: () {
-                if (_formKey.currentState.validate()) {}
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
               ),
