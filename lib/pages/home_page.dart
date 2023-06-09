@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../controllers/post_controllers.dart';
 import '../models/post.dart';
+import '../utils/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,17 +45,18 @@ class _HomePageState extends State<HomePage> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text("Data Berhasil Dihapus"),
+                                    behavior: SnackBarBehavior.floating,
                                   ),
                                 );
+                                setState(() {});
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text("Data Gagal Dihapus"),
+                                    behavior: SnackBarBehavior.floating,
                                   ),
                                 );
-                                setState(() {
-                                  
-                                });
+                                setState(() {});
                               }
                             });
                             snapshot.data!.removeAt(index);
@@ -61,6 +64,12 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Card(
                           child: ListTile(
+                            onTap: () {
+                              GoRouter.of(context).pushNamed(
+                                AppRoutes.post,
+                                extra: snapshot.data![index],
+                              );
+                            },
                             title: Text(
                               snapshot.data![index].title,
                               maxLines: 1,
