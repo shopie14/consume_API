@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   final PostController postController = PostController();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
@@ -27,8 +28,20 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (snapshot.hasData) {
               if (snapshot.data!.isNotEmpty) {
-                inspect(snapshot.data!);
-                return Text("Ada Data");
+                return ListView.separated(
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(snapshot.data![index].title),
+                      subtitle: Text(snapshot.data![index].body),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: size.height * 0.01,
+                    );
+                  },
+                  itemCount: snapshot.data!.length,
+                );
               } else {
                 return Text("Tidak Ada Data");
               }
