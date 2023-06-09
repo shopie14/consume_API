@@ -21,7 +21,7 @@ class Post {
   }
   Map<String, dynamic> toMap() {
     return {
-      "UserId": userId,
+      "userId": userId,
       "id": id,
       "title": title,
       "body": body,
