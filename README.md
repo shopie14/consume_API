@@ -1,16 +1,18 @@
-# api_berita_app
+## Kelompok 5
 
-A new Flutter project.
+Kelompok ini terdiri dari 5 anggota yang bekerja sama dalam proyek XYZ. Proyek XYZ adalah proyek yang bertujuan untuk mengembangkan sebuah aplikasi berita menggunakan Flutter.
 
-## Getting Started
+### Anggota Kelompok:
+1. Shopi Nurhidayanti
+2. Fadia Siti Nursifa
+3. David Yusuf
+4. Rika Lestari
+5. Tintin Nuraisah
 
-This project is a starting point for a Flutter application.
+## Tampilan Home Add Post
+![Logo](/lib/assets/img/add-post.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Tampilan Sebelum Add Post
+![Logo](/lib/assets/img/home.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
