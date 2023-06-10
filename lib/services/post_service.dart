@@ -4,7 +4,6 @@ import 'package:api_berita_app/utils/request_helper.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-
 class PostService {
   Future<http.Response> fetch() async {
     String endPoint = EndPoint.post;

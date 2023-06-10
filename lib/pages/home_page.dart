@@ -1,10 +1,10 @@
 import 'dart:developer';
-
 import 'package:api_berita_app/controllers/post_controllers.dart';
 import 'package:api_berita_app/models/post.dart';
 import 'package:api_berita_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,10 +18,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text("Home Page"),
       ),
       body: SafeArea(
         child: FutureBuilder<List<Post>>(
@@ -35,35 +34,32 @@ class _HomePageState extends State<HomePage> {
               if (snapshot.data!.isNotEmpty) {
                 inspect(snapshot.data!);
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: ListView.separated(
                     itemBuilder: (context, index) {
                       return Dismissible(
                         key: Key(snapshot.data![index].id.toString()),
                         onDismissed: (direction) {
-                          setState(() {
-                            postController
-                                .delete(snapshot.data![index].id)
-                                .then((result) {
-                              if (result) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("Data Berhasil Dihapus"),
-                                    behavior: SnackBarBehavior.floating,
-                                  ),
-                                );
-                                setState(() {});
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("Data Gagal Dihapus"),
-                                    behavior: SnackBarBehavior.floating,
-                                  ),
-                                );
-                                setState(() {});
-                              }
-                            });
-                            snapshot.data!.removeAt(index);
+                          postController
+                              .delete(snapshot.data![index].id)
+                              .then((result) {
+                            if (result) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Post Deleted"),
+                                  behavior: SnackBarBehavior.floating,
+                                ),
+                              );
+                              setState(() {});
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Failde Deleted Post"),
+                                  behavior: SnackBarBehavior.floating,
+                                ),
+                              );
+                              setState(() {});
+                            }
                           });
                         },
                         child: Card(
@@ -90,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
-                        height: size.height * 0.0005,
+                        height: size.height * 0.01,
                       );
                     },
                     itemCount: snapshot.data!.length,
@@ -104,11 +100,6 @@ class _HomePageState extends State<HomePage> {
             }
           },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          AppRoutes.goRouter.pushNamed(AppRoutes.addPost);
-        },
       ),
     );
   }

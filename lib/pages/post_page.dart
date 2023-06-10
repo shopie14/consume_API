@@ -28,7 +28,7 @@ class _PostPageState extends State<PostPage> {
             children: [
               Text(
                 widget.post.title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
