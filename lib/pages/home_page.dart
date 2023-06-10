@@ -1,10 +1,10 @@
 import 'dart:developer';
 
+import 'package:api_berita_app/controllers/post_controllers.dart';
+import 'package:api_berita_app/models/post.dart';
+import 'package:api_berita_app/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../controllers/post_controllers.dart';
-import '../models/post.dart';
-import '../utils/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +17,8 @@ class _HomePageState extends State<HomePage> {
   final PostController postController = PostController();
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (snapshot.hasData) {
               if (snapshot.data!.isNotEmpty) {
-                inspect(snapshot.data);
+                inspect(snapshot.data!);
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
                   child: ListView.separated(

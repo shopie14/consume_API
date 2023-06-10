@@ -1,14 +1,15 @@
+import 'package:api_berita_app/models/post.dart';
 import 'package:api_berita_app/utils/endpoint.dart';
 import 'package:api_berita_app/utils/request_helper.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import '../models/post.dart';
 
 class PostService {
   Future<http.Response> fetch() async {
     String endPoint = EndPoint.post;
     Uri url = Uri.parse(endPoint);
+    
     return await http.get(
       url,
       headers: RequestHelper.basicHeader(),
@@ -25,11 +26,10 @@ class PostService {
     );
   }
 
-  Future<http.Response> post(Post post) async {
+  Future<http.Response> create(Post post) async {
     String endPoint = EndPoint.post;
     Uri url = Uri.parse(endPoint);
     var jsonBody = post.toMap();
-
     return await http.post(
       url,
       body: jsonEncode(jsonBody),
@@ -54,11 +54,10 @@ class PostService {
     String? title,
     String? body,
   }) async {
-    String endPoint = "${EndPoint.post}/$id";
+    String endPoint = "${EndPoint.post}/$id}";
     Uri url = Uri.parse(endPoint);
 
     Map<String, dynamic> jsonBody = {};
-
     if (title != null) {
       jsonBody["title"] = title;
     }

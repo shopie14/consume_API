@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
-import '../models/comment.dart';
-import '../models/post.dart';
-import '../services/post_service.dart';
+import 'package:api_berita_app/models/comment.dart';
+import 'package:api_berita_app/models/post.dart';
+import 'package:api_berita_app/services/post_service.dart';
 
 class PostController {
   Future<List<Post>> fetchAll() async {
@@ -13,8 +13,8 @@ class PostController {
           jsonData.length,
           (index) => Post.fromMap(
             jsonData[index],
-          ), // Post.fromMap
-        ); // List.generate
+          ),
+        );
       } else {
         throw Exception();
       }
@@ -26,7 +26,9 @@ class PostController {
       if (res.statusCode == HttpStatus.ok) {
         var jsonData = jsonDecode(res.body);
         return List.generate(
-            jsonData.length, (index) => Comment.fromMap(jsonData[index]));
+          jsonData.length,
+          (index) => Comment.fromMap(jsonData[index]),
+        );
       } else {
         throw Exception();
       }

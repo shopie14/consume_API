@@ -1,8 +1,8 @@
+import 'package:api_berita_app/models/post.dart';
+import 'package:api_berita_app/pages/add_post_page.dart';
 import 'package:api_berita_app/pages/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../models/post.dart';
-import '../pages/add_post_page.dart';
 
 class AppRoutes {
   static const home = "home";
@@ -20,7 +20,9 @@ class AppRoutes {
   }
 
   static Page _postPageBuilder(BuildContext context, GoRouterState state) {
-    return MaterialPage(child: PostPage(post: state.extra as Post));
+    return MaterialPage(
+      child: PostPage(post: state.extra as Post),
+    );
   }
 
   static Page _addpostPageBuilder(BuildContext context, GoRouterState state) {
@@ -28,11 +30,11 @@ class AppRoutes {
   }
 
   static GoRouter goRouter = GoRouter(
-    initialLocation: '/home',
+    initialLocation: "/home",
     routes: [
       GoRoute(
           name: home,
-          path: '/home',
+          path: "/home",
           pageBuilder: _homePageBuilder,
           routes: [
             GoRoute(
