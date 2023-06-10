@@ -9,7 +9,6 @@ class AppRoutes {
   static const post = "post";
   static const addPost = "add-post";
 
-
   static Page _homePageBuilder(BuildContext context, GoRouterState state) {
     return MaterialPage(
       child: Scaffold(
@@ -23,8 +22,9 @@ class AppRoutes {
   static Page _postPageBuilder(BuildContext context, GoRouterState state) {
     return MaterialPage(child: PostPage(post: state.extra as Post));
   }
+
   static Page _addpostPageBuilder(BuildContext context, GoRouterState state) {
-    return  const MaterialPage(child: AddPostPage());
+    return const MaterialPage(child: AddPostPage());
   }
 
   static GoRouter goRouter = GoRouter(

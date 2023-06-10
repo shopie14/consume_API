@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../controllers/post_controllers.dart';
@@ -30,6 +32,7 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (snapshot.hasData) {
               if (snapshot.data!.isNotEmpty) {
+                inspect(snapshot.data);
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.01),
                   child: ListView.separated(
